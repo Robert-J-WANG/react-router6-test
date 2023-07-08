@@ -2,35 +2,35 @@
 
 ## 概述
 
-### React Router 发布了三个不同的包：
+#### React Router 发布了三个不同的包：
 
-* #### `react-router`：路由核心库，提供许多组件、钩子
+* ##### `react-router`：路由核心库，提供许多组件、钩子
 
-* #### `react-router-dom`：包括了 `react-router` 所有内容，同时添加了用于 DOM 的组件，如 `<BrowserRouter>`
+* ##### `react-router-dom`：包括了 `react-router` 所有内容，同时添加了用于 DOM 的组件，如 `<BrowserRouter>`
 
-* #### `react-router-native`：包括了 `react-router` 所有内容，同时添加了用于 ReactNative 的 API，如 `<NativeRouter>`
+* ##### `react-router-native`：包括了 `react-router` 所有内容，同时添加了用于 ReactNative 的 API，如 `<NativeRouter>`
 
-### 与 React Router 5.x 版本的区别：
+#### 与 React Router 5.x 版本的区别：
 
-* #### 内置组件的变化：移除 `<Switch/>`，新增 `<Routes/>`……
+* ##### 内置组件的变化：移除 `<Switch/>`，新增 `<Routes/>`……
 
-* #### 语法变化：`component={About}` 变成 `element={<About/>}`……
+* ##### 语法变化：`component={About}` 变成 `element={<About/>}`……
 
-* #### 新增 hook：`useParams`、`useNavigate`、`useMatch`……
+* ##### 新增 hook：`useParams`、`useNavigate`、`useMatch`……
 
-* #### 官方明确表示推荐使用函数式组件
+* ##### 官方明确表示推荐使用函数式组件
 
     
 
 ## 基本使用
 
-### 安装 6 版本的 React Router。
+#### 安装 6 版本的 React Router。
 
 ```shell
 npm install react-router-dom
 ```
 
-### `index.js` 文件引入 `<BrowserRouter>`。
+#### `index.js` 文件引入 `<BrowserRouter>`。
 
 ```jsx
 // 从 react-dom/client 引入 ReactDOM
@@ -46,7 +46,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-### `App.js` 设置路由链接和注册路由。`<Route caseSensitive>` 属性用于指定匹配时是否区分大小写（默认为 false）。
+#### `App.js` 设置路由链接和注册路由。`<Route caseSensitive>` 属性用于指定匹配时是否区分大小写（默认为 false）。
 
 ```jsx
 import { NavLink, Routes, Route } from 'react-router-dom'
@@ -73,7 +73,7 @@ export default function App() {
 
 ## [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#browserrouter)`<BrowserRouter>`
 
-### `<BrowserRouter>` 用于包裹整个应用。
+#### `<BrowserRouter>` 用于包裹整个应用。
 
 ```jsx
 import ReactDOM from 'react-dom/client'
@@ -91,21 +91,21 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 ## [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#hashrouter)`<HashRouter>`
 
-#### 作用与 `<BrowserRouter>` 一样，但 `<HashRouter>` 修改的是地址栏的 hash 值。
+##### 作用与 `<BrowserRouter>` 一样，但 `<HashRouter>` 修改的是地址栏的 hash 值。
 
-#### 6.x 版本中 `<HashRouter>`、`<BrowserRouter>` 的用法与 5.x 相同。
+##### 6.x 版本中 `<HashRouter>`、`<BrowserRouter>` 的用法与 5.x 相同。
 
 ## [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#routes)`<Routes/>`
 
-#### 6 版本中移出了 `<Switch>`，引入了新的替代者：`<Routes>`。
+##### 6 版本中移出了 `<Switch>`，引入了新的替代者：`<Routes>`。
 
-#### `<Routes>` 和 `<Route>` 要配合使用，且必须要用 `<Routes>` 包裹 `<Route>`。
+##### `<Routes>` 和 `<Route>` 要配合使用，且必须要用 `<Routes>` 包裹 `<Route>`。
 
 ## [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#navigate-重定向)`<Navigate>` 重定向
 
-#### 只要 `<Navigate>` 组件被渲染，就会修改路径，切换视图。可用于路由重定向。
+##### 只要 `<Navigate>` 组件被渲染，就会修改路径，切换视图。可用于路由重定向。
 
-#### `replace` 属性用于控制跳转模式（push 或 replace，默认是 push）。
+##### `replace` 属性用于控制跳转模式（push 或 replace，默认是 push）。
 
 ```jsx
 import { NavLink, Routes, Route, Navigate } from 'react-router-dom'
@@ -291,9 +291,9 @@ export default function Hello() {
 
 ## [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#navlink-路由高亮)`<NavLink>` 路由高亮
 
-### 实现导航的 “高亮” 效果，6 版本不能直接指定高亮类名，需要通过函数返回。该函数传入一个对象，类似于 `{isActive: true}` 标识路由是否被激活。
+#### 实现导航的 “高亮” 效果，6 版本不能直接指定高亮类名，需要通过函数返回。该函数传入一个对象，类似于 `{isActive: true}` 标识路由是否被激活。
 
-### 默认情况下，当 `Home` 的子组件匹配成功，`Home` 的导航也会高亮，`end` 属性可移除该效果。
+#### 默认情况下，当 `Home` 的子组件匹配成功，`Home` 的导航也会高亮，`end` 属性可移除该效果。
 
 ```jsx
 // NavLink 默认类名是 active，下面是指定自定义类名
@@ -316,11 +316,11 @@ export default function Hello() {
 
 ## [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#路由传参)路由传参
 
-> ### 以不使用路由表为例
+> #### 以不使用路由表为例
 
-### [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#传递-params参数)传递 `params`参数
+#### [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#传递-params参数)传递 `params`参数
 
-#### 注册路由时声明 `params` 参数，和 React Router 5 一样。
+##### 注册路由时声明 `params` 参数，和 React Router 5 一样。
 
 ```jsx
 export default function App() {
@@ -340,7 +340,7 @@ export default function App() {
 
 
 
-#### 传递参数。
+##### 传递参数。
 
 ```jsx
 <Link to={`detail/${item.id}/${item.name}/${item.age}`}>{item.name}</Link>
@@ -348,7 +348,7 @@ export default function App() {
 
 
 
-#### 使用 `useParams()` 接收 `params` 参数。`useParams()` 返回一个参数对象。
+##### 使用 `useParams()` 接收 `params` 参数。`useParams()` 返回一个参数对象。
 
 ```jsx
 import React from 'react'
@@ -377,13 +377,13 @@ export default function Detail() {
 <Route path="detail" element={<Detail />} />
 ```
 
-#### 传递参数。
+##### 传递参数。
 
 ```jsx
 <Link to={`detail?id=${item.id}&name=${item.name}&age=${item.age}`}>{item.name}</Link>
 ```
 
-#### 使用 `useSearchParams()` 接收参数。该方法返回一个包含两个元素的数组：`search` 参数和修改 `search` 参数的方法。
+##### 使用 `useSearchParams()` 接收参数。该方法返回一个包含两个元素的数组：`search` 参数和修改 `search` 参数的方法。
 
 ```jsx
 import React from 'react'
@@ -422,7 +422,7 @@ export default function Detail() {
 <Route path="detail" element={<Detail />} />
 ```
 
-#### 传递参数，这里相较于 5 版本有所不同，不必写到一个对象里面。
+##### 传递参数，这里相较于 5 版本有所不同，不必写到一个对象里面。
 
 ```jsx
 <Link to="detail" state={{ id: item.id, name: item.name, age: item.age }}>
@@ -430,7 +430,7 @@ export default function Detail() {
 </Link>
 ```
 
-#### 使用 `useLocation()` 接收参数。该方法返回路由组件的 `location` 对象，就是 5 版本路由组件的 `location` 属性，其中包含 `state` 参数。
+##### 使用 `useLocation()` 接收参数。该方法返回路由组件的 `location` 对象，就是 5 版本路由组件的 `location` 属性，其中包含 `state` 参数。
 
 ```jsx
 import { useLocation } from 'react-router-dom'
@@ -455,11 +455,11 @@ export default function Detail() {
 
 ## [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#usenavigate-编程式路由导航)`useNavigate()` 编程式路由导航
 
-### `useNavigate()` 返回一个函数，调用该函数实现编程式路由导航。函数有两种参数传递方式。
+#### `useNavigate()` 返回一个函数，调用该函数实现编程式路由导航。函数有两种参数传递方式。
 
-### 第一种方式传递两个参数：路由和相关参数。参数只能设置 `replace` 和 `state`。想要传递 `params` 和 `search` 参数直接在路由带上。
+#### 第一种方式传递两个参数：路由和相关参数。参数只能设置 `replace` 和 `state`。想要传递 `params` 和 `search` 参数直接在路由带上。
 
-### 第二种方式传递数字，代表前进或后退几步。
+#### 第二种方式传递数字，代表前进或后退几步。
 
 ```jsx
 import React, { useState } from 'react'
@@ -518,9 +518,9 @@ export default function Message() {
 
 ### [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#usematch)`useMatch()`
 
-返回路由组件的 `match` 数据，即 5 版本中的 `match` 属性。
+##### 返回路由组件的 `match` 数据，即 5 版本中的 `match` 属性。
 
-必须传入该组件对应的路由规则才能正确返回，否则返回 `null`。
+##### 必须传入该组件对应的路由规则才能正确返回，否则返回 `null`。
 
 ```jsx
 // Detail.jsx
@@ -548,19 +548,19 @@ pattern: {path: 'hello/message/detail/:id/:name/:age', caseSensitive: false, end
 
 ### [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#useinroutercontext)`useInRouterContext()`
 
-#### 如果组件在 `<Router>` 的上下文中呈现，则 `useInRouterContext` 钩子返回 `true`，否则返回 `false`。即组件有没有被包裹在 `<BrowserRouter>` 这种东西里面。这个对第三方组件库有用处。
+##### 如果组件在 `<Router>` 的上下文中呈现，则 `useInRouterContext` 钩子返回 `true`，否则返回 `false`。即组件有没有被包裹在 `<BrowserRouter>` 这种东西里面。这个对第三方组件库有用处。
 
 ### [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#usenavigationtype)`useNavigationType()`
 
-#### 返回当前的导航类型（用户是如何来到当前页面的）。
+##### 返回当前的导航类型（用户是如何来到当前页面的）。
 
-#### 返回值：`POP`、`PUSH`、`REPLACE`。
+##### 返回值：`POP`、`PUSH`、`REPLACE`。
 
-#### `POP` 是指在浏览器中直接打开了这个路由组件（刷新页面）。
+##### `POP` 是指在浏览器中直接打开了这个路由组件（刷新页面）。
 
 ### [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#useoutlet)`useOutlet()`
 
-#### 用来呈现当前组件中渲染的嵌套路由。
+##### 用来呈现当前组件中渲染的嵌套路由。
 
 ```jsx
 const result = useOutlet()
@@ -573,7 +573,7 @@ console.log(result)
 
 ### [#](https://brucecai55520.gitee.io/bruceblog/notes/react/react-router6.html#useresolvedpath)`useResolvedPath()`
 
-#### 给定一个 URL 值，解析其中的：`path`、`search`、`hash` 值。
+##### 给定一个 URL 值，解析其中的：`path`、`search`、`hash` 值。
 
 ```jsx
 const res = useResolvedPath('/user?id=001&name=Bruce#React')
