@@ -1,29 +1,34 @@
 import React from 'react'
-import { NavLink, useRoutes } from 'react-router-dom'
-import routes from './routes'
-import Header from './components/Header'
+import Home from './pages/Home'
+import About from './pages/About'
+import { NavLink, Routes, Route, Navigate } from 'react-router-dom'
 
 export default function App() {
-    // 使用useRoutes生成路由表，路由路径和注册路由信息抽离为单独的文件routes
-    const element = useRoutes(routes)
     return (
         <div>
             <div className="row">
-                <Header />
+                <div className="col-xs-offset-2 col-xs-8">
+                    <div className="page-header"><h2>React Router Demo</h2></div>
+                </div>
             </div>
             <div className="row">
                 <div className="col-xs-2 col-xs-offset-2">
                     <div className="list-group">
                         {/* 链接路由 */}
                         <NavLink className="list-group-item" to="/about">About</NavLink>
-                        <NavLink className="list-group-item" to="/home" end >Home</NavLink>
+                        <NavLink className="list-group-item" to="/home">Home</NavLink>
                     </div>
                 </div>
                 <div className="col-xs-6">
                     <div className="panel">
                         <div className="panel-body">
                             {/* 注册路由 */}
-                            {element}
+                            <Routes>
+                                <Route path='/about' element={<About />} />
+                                <Route path='/home' element={<Home />} />
+                                {/* 使用Navigate设置重定向 */}
+                                <Route path='/' element={<Navigate to='/about' />} />
+                            </Routes >
                         </div>
                     </div>
                 </div>
